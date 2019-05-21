@@ -1,37 +1,32 @@
-
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import Layout from '../components/layout'
-import { StaticQuery, graphql } from 'gatsby'
 import Card from '../components/Card'
+import Layout from '../components/layout'
 
 const IndexPage = () => (
   <Layout>
-  <StaticQuery
-    query={graphql`
-      query {
-        gcms {
-          mountains {
-            title
-              elevation
-              image {
-                url
-              }
+    <StaticQuery
+      query={graphql`
+        query {
+          gcms {
+            posts {
+              status
+              updatedAt
+              createdAt
+              title
+              body
+            }
           }
         }
-      }
-    `}
-    render={data => {
-      if (!data.gcms) {
-        return <p>Loading…</p>
-      }
-      return data.gcms.mountains.map(d =>
-        <Card
-          title={d.title}
-          elevation={d.elevation}
-          src={d.image ? d.image.url : undefined}
-        />
-        )
-    }}
+      `}
+      render={data => {
+        if (!data.gcms) {
+          return <p>Loading…</p>
+        }
+        return data.gcms.posts.map(p => (
+          <Card title={p.title} elevation={p.body} />
+        ))
+      }}
     />
   </Layout>
 )

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby and GraphCMS',
   },
-  pathPrefix: "/gatsby-graphcms-tailwindcss-example",
+  pathPrefix: '/gatsby-graphcms-tailwindcss-example',
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
@@ -16,14 +16,15 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
-        typeName: "GCMS",
+        typeName: 'GCMS',
         // This is field under which it's accessible
-        fieldName: "gcms",
+        fieldName: 'gcms',
         // Url to query from
-        url: "https://api-euwest.graphcms.com/v1/cjm7tab4c04ro019omujh708u/master",
+        url:
+          'https://api-useast.graphcms.com/v1/cjn7wyp9y44je01glu336691j/master',
       },
     },
     'gatsby-plugin-offline',
